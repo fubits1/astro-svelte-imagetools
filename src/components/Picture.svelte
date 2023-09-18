@@ -27,6 +27,11 @@
           `../assets/${prefix}.${extension}?w=300;600;900&format=png&as=srcset`,
           import.meta.url
         ).href.replaceAll('%20', ' ');
+      case 'jpg':
+        return new URL(
+          `../assets/${prefix}.${extension}?w=300;600;900&format=jpg&as=srcset`,
+          import.meta.url
+        ).href.replaceAll('%20', ' ');
       default:
         return new URL(`../assets/${prefix}.${extension}?w=500`, import.meta.url).href;
     }
