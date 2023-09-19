@@ -42,10 +42,18 @@
   const avif = importImageByFilename(filename, 'avif');
   const webp = importImageByFilename(filename, 'webp');
   const fallback = importImageByFilename(filename);
+
+  // workaround for pre-mature evaluation of path by vite
+  let isLoaded = false
+  const handleLoad = () => {
+    isLoaded = true
+  }
 </script>
 import.meta.url: {import.meta.url}
-<picture>
+<picture use:handleLoad>
+  {#if isLoaded}
   <source srcset={avif} type="image/avif" />
   <source srcset={webp} type="image/webp" />
-  <img src={fallback} {alt} />
+  <img src={fallback} {alt} loading="lazy" />
+  {/if}
 </picture>

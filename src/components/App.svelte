@@ -98,13 +98,13 @@
     <h3>Imagetools</h3>
     <h4>Basic imports</h4>
     SvelteLogoImageTools: {SvelteLogoImageTools}
-    <img src={SvelteLogoImageTools} class="logo svelte" alt="alt: Svelte Logo" />
+    <img src={SvelteLogoImageTools} class="logo svelte" alt="alt: Svelte Logo" loading="lazy" />
     <hr />
     <!-- <Rainbow /> -->
     <code>{Rainbow}</code>
-    <img src={Rainbow} alt="alt: TODO" />
+    <img src={Rainbow} alt="alt: TODO" loading="lazy" />
     <code>{Lake}</code>
-    <img src={Lake} alt="alt: TODO" />
+    <img src={Lake} alt="alt: TODO" loading="lazy" />
   </div>
   <div class="card">
     <Counter />
