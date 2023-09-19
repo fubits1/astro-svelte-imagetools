@@ -1,4 +1,6 @@
 <script>
+	import { semiDynamicImageImport, importImageByFilename } from './../utils/vite.js';
+  
   // static Vite from ../assets
   // doesn't work
   // import svelteLogoStaticSimple from '../assets/svelte.svg';
@@ -24,17 +26,18 @@
 
   // static imagetools & format=webp
   // @ts-ignore
-  import Lake from '../assets/lake-hd.jpg?w=400&h=300&format=webp&quality=50';
+  // import Lake from '../assets/lake-hd.jpg?w=400&h=300&format=webp&quality=50';
 
   // dynamic imagetools
-  const imageFilename = 'lake-hd';
-  const semiDynamicImageUrl = new URL(
-    `./assets/${imageFilename}.jpg?w=100&format=avif&tint=ffaa22`,
-    import.meta.url
-  ).href;
+  // const imageFilename = 'lake-hd';
+
+  // const semiDynamicImageUrl = semiDynamicImageImport(imageFilename)
 
   /* Picture */
   import Picture from '../components/Picture.svelte'; // using as=srcset
+
+  /* Image */
+  import Image from '../components/Image.svelte';
 
   // official documentation https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#picture
   // pointer for picture component https://github.com/JonasKruckenberg/imagetools/issues/260#issuecomment-1081965405
@@ -64,20 +67,20 @@
 <main>
   <h2>Vite + Svelte: Dynamic Image Import + Preprocessing</h2>
   <code>import.meta.url: {import.meta.url}</code>
-  <h3><s>1. const image = new URL(file, import.meta.url)</s></h3>
+  <!-- <h3>1. const image = new URL(file, import.meta.url)</h3>
   <code>
-    const semiDynamicImageUrl = new URL( `./assets/${imageFilename}.jpg?w=100&format=avif&tint=ffaa22`,
+    const semiDynamicImageUrl = new URL( `../assets/${imageFilename}.jpg?w=100&format=avif&tint=ffaa22`,
     import.meta.url ).href;</code
   ><br />
   Result: <code>{semiDynamicImageUrl}</code>
-  <!-- <figure>
+  <figure>
     <img src={semiDynamicImageUrl} alt="alt: " />
-  </figure> -->
-  <hr />
+  </figure>
+  <hr /> -->
   <h3>2. MAIN: picture + source + srscet + dynamic import</h3>
   <Picture filename="rainbow.jpg" />
   <hr />
-  <h3><s>dynamic from function call</s></h3>
+  <!-- <h3>dynamic from function call</h3> -->
   <!-- <code>{imageFromFunction}</code><br /> -->
   <!-- <img src={imageFromFunction} alt="alt: dyn src" /> -->
   <h4><s>Static with Vite</s></h4>
@@ -101,10 +104,12 @@
     <img src={SvelteLogoImageTools} class="logo svelte" alt="alt: Svelte Logo" loading="lazy" />
     <hr />
     <!-- <Rainbow /> -->
-    <code>{Rainbow}</code>
-    <img src={Rainbow} alt="alt: TODO" loading="lazy" />
-    <code>{Lake}</code>
-    <img src={Lake} alt="alt: TODO" loading="lazy" />
+    <!-- <code>{Rainbow}</code> -->
+    <!-- <img src={Rainbow} alt="alt: TODO" loading="lazy" /> -->
+    <Image filename={"rainbow.jpg"} />
+    <!-- <code>{Lake}</code> -->
+    <Image filename={"lake-hd.jpg"} />
+    <!-- <img src={Lake} alt="alt: TODO" loading="lazy" /> -->
   </div>
   <div class="card">
     <Counter />
