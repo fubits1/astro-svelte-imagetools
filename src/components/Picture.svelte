@@ -32,6 +32,8 @@
           `../assets/${prefix}.${extension}?w=300;600;900&format=jpg&as=srcset`,
           import.meta.url
         ).href.replaceAll('%20', ' ');
+      case 'asis':
+        return new URL(`../assets/${prefix}.${extension}`, import.meta.url).href;
       default:
         return new URL(`../assets/${prefix}.${extension}?w=500`, import.meta.url).href;
     }
@@ -41,7 +43,7 @@
   const webp = importImageByFilename(filename, 'webp');
   const fallback = importImageByFilename(filename);
 </script>
-{import.meta.url}
+import.meta.url: {import.meta.url}
 <picture>
   <source srcset={avif} type="image/avif" />
   <source srcset={webp} type="image/webp" />
