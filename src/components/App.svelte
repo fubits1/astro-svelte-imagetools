@@ -1,5 +1,5 @@
 <script>
-	import { semiDynamicImageImport, importImageByFilename } from './../utils/vite.js';
+	// import { semiDynamicImageImport, importImageByFilename } from './../utils/vite.js';
   
   // static Vite from ../assets
   // doesn't work
@@ -38,6 +38,7 @@
 
   /* Image */
   import Image from '../components/Image.svelte';
+  import Image2 from '../components/Image2.svelte';
 
   // official documentation https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#picture
   // pointer for picture component https://github.com/JonasKruckenberg/imagetools/issues/260#issuecomment-1081965405
@@ -103,12 +104,13 @@
     SvelteLogoImageTools: {SvelteLogoImageTools}
     <img src={SvelteLogoImageTools} class="logo svelte" alt="alt: Svelte Logo" loading="lazy" />
     <hr />
+    <h4>Image component + importImageByFilename1|2</h4>
     <!-- <Rainbow /> -->
     <!-- <code>{Rainbow}</code> -->
     <!-- <img src={Rainbow} alt="alt: TODO" loading="lazy" /> -->
     <Image filename={"rainbow.jpg"} />
     <!-- <code>{Lake}</code> -->
-    <Image filename={"lake-hd.jpg"} />
+    <Image2 filename={"lake-hd.jpg"} />
     <!-- <img src={Lake} alt="alt: TODO" loading="lazy" /> -->
   </div>
   <div class="card">
