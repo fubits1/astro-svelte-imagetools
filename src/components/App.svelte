@@ -1,6 +1,6 @@
 <script>
-	// import { semiDynamicImageImport, importImageByFilename } from './../utils/vite.js';
-  
+  // import { semiDynamicImageImport, importImageByFilename } from './../utils/vite.js';
+
   // static Vite from ../assets
   // doesn't work
   // import svelteLogoStaticSimple from '../assets/svelte.svg';
@@ -35,6 +35,7 @@
 
   /* Picture */
   import Picture from '../components/Picture.svelte'; // using as=srcset
+  import Picture2 from '../components/Picture2.svelte'; // using as=srcset
 
   /* Image */
   import Image from '../components/Image.svelte';
@@ -78,8 +79,12 @@
     <img src={semiDynamicImageUrl} alt="alt: " />
   </figure>
   <hr /> -->
-  <h3>2. MAIN: picture + source + srscet + dynamic import</h3>
+  <h3>2. MAIN: picture</h3>
+  <h4>Pciture (v1) + source + srscet + dynamic import</h4>
   <Picture filename="rainbow.jpg" />
+  <hr />
+  <h4>Pciture (v2) + source + srscet + dynamic import</h4>
+  <Picture filename="lake-hd.jpg" />
   <hr />
   <!-- <h3>dynamic from function call</h3> -->
   <!-- <code>{imageFromFunction}</code><br /> -->
@@ -101,16 +106,22 @@
     <hr />
     <h3>Imagetools</h3>
     <h4>Basic imports</h4>
-    SvelteLogoImageTools: {SvelteLogoImageTools}
+    SvelteLogoImageTools: {SvelteLogoImageTools}<br />
     <img src={SvelteLogoImageTools} class="logo svelte" alt="alt: Svelte Logo" loading="lazy" />
+    <img
+      src={Rainbow}
+      class="logo svelte"
+      alt="alt: Rainbow"
+      loading="lazy"
+      decoding="async" /><br />
+    {Rainbow}
     <hr />
     <h4>Image component + importImageByFilename1|2</h4>
     <!-- <Rainbow /> -->
     <!-- <code>{Rainbow}</code> -->
-    <!-- <img src={Rainbow} alt="alt: TODO" loading="lazy" /> -->
-    <Image filename={"rainbow.jpg"} />
+    <Image filename={'rainbow.jpg'} />
     <!-- <code>{Lake}</code> -->
-    <Image2 filename={"lake-hd.jpg"} />
+    <Image2 filename={'lake-hd.jpg'} />
     <!-- <img src={Lake} alt="alt: TODO" loading="lazy" /> -->
   </div>
   <div class="card">

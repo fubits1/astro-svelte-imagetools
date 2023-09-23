@@ -7,7 +7,15 @@ export default defineConfig({
   integrations: [svelte()],
   vite: {
     plugins: [imagetools()],
+    resolve: {
+      alias: {
+        '@utils': 'src/utils',
+        '@assets': 'src/assets',
+      },
+    },
   },
+  // add alias
+
   //   optimizeDeps: {
   //     exclude: ['imagetools'],
   //   },
